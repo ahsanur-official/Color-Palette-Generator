@@ -90,7 +90,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(90deg, #0b0018c5, #003082c5);
+    background: linear-gradient(90deg, #0b0018eb, #003082eb);
     color: white;
     padding: 30px 40px;
     border-radius: 10px;
