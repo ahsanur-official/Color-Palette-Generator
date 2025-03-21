@@ -44,7 +44,7 @@ input {
 
 button {
     padding: 15px 20px;
-    font-size: 18px;
+    font-size: 20px;
     border: none;
     background: #ff4081;
     color: white;
@@ -130,7 +130,7 @@ button:hover {
 
     button {
         padding: 12px 18px;
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .controls {
@@ -148,7 +148,7 @@ button:hover {
 
     button {
         padding: 12px 18px;
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .container {
