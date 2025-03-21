@@ -23,8 +23,18 @@ function getRandomColor() {
     }
     return color;
 }
-
 function copyToClipboard(color) {
     navigator.clipboard.writeText(color);
-    alert("Copied: " + color);
+    
+    // Create a custom alert div
+    let alertBox = document.createElement("div");
+    alertBox.className = "copy-alert";
+    alertBox.innerText = `Copied: ${color}`;
+    
+    document.body.appendChild(alertBox);
+
+    // Remove the alert after 2 seconds
+    setTimeout(() => {
+        alertBox.remove();
+    }, 2000);
 }

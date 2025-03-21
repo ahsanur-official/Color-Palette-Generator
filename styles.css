@@ -85,6 +85,30 @@ button:hover {
     transform: scale(1.05);
 }
 
+.copy-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(90deg, #0b0018c5, #003082c5);
+    color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -60%); }
+    20% { opacity: 1; transform: translate(-50%, -50%); }
+    80% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0; transform: translate(-50%, -40%); }
+}
+
+
 .footer {
     margin-top: 15px;
     font-size: 12px;
