@@ -1,39 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Palette Generator</title>
-    <link rel="icon" type="image/png" href="color.png">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="icon" type="image/png" href="color.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1>Color Palette Generator</h1>
+      <h1>Color Palette Generator</h1>
 
-        <div class="controls">
-            <label for="numColors">Number of Colors:</label>
-            <input type="number" id="numColors" min="3" max="12" value="6">
-            <label for="colorType">Color Type:</label>
-            <select id="colorType">
-                <option value="random">Random</option>
-                <option value="sequential">Sequential</option>
-                <option value="complementary">Complementary</option>
-                <option value="analogous">Analogous</option>
-            </select>
+      <div class="controls">
+        <div id="numColorsControl">
+          <label for="numColors">Number of Colors:</label>
+          <input type="number" id="numColors" min="3" max="12" value="6" />
         </div>
 
-        <button id="generateBtn">Generate Palette</button>
-        <div class="palette" id="palette"></div>
+        <label for="colorType">Color Type:</label>
+        <select id="colorType">
+          <option value="rgb">RGB</option>
+          <option value="gradient">Gradients</option>
+          <option value="dc">Dark Colors</option>
+          <option value="dg">Dark Gradients</option>
+          <option value="mc">Mix Colors</option>
+          <option value="mg">Mix Gradient</option>
+        </select>
+      </div>
 
-        <div class="footer">
-            <p>Made with 💖 by <a href="https://mdahsanurrahaman.netlify.app/" target="_blank">Md. Ahsanur Rahaman!</a></p>
-        </div>
+      <div id="gradientOptions" style="display: none">
+        <label for="gradientType">Gradient Type:</label>
+        <select id="gradientType">
+          <option value="linear">Linear</option>
+          <option value="radial">Radial</option>
+          <option value="conic">Conic</option>
+        </select>
+        <label for="gradientNumColors">Number of Colors:</label>
+        <input type="number" id="gradientNumColors" min="2" max="6" value="2" />
+      </div>
+
+      <div id="mixOptions" style="display: none">
+        <label for="mixColor1">Color 1:</label>
+        <input type="color" id="mixColor1" value="#ff0000" />
+        <label for="mixColor2">Color 2:</label>
+        <input type="color" id="mixColor2" value="#0000ff" />
+      </div>
+
+      <div id="mixGradientOptions" style="display: none">
+        <label for="mixGradientType">Gradient Type:</label>
+        <select id="mixGradientType">
+          <option value="linear">Linear</option>
+          <option value="radial">Radial</option>
+          <option value="conic">Conic</option>
+        </select>
+        <label for="mixGradientColor1">Color 1:</label>
+        <input type="color" id="mixGradientColor1" value="#ff0000" />
+        <label for="mixGradientColor2">Color 2:</label>
+        <input type="color" id="mixGradientColor2" value="#0000ff" />
+      </div>
+
+      <button id="generateBtn">Generate Palette</button>
+      <div class="palette" id="palette"></div>
+
+      <div class="footer">
+        <p>
+          Made with 💖 by
+          <a href="https://mdahsanurrahaman.netlify.app/" target="_blank"
+            >Md. Ahsanur Rahaman!</a
+          >
+        </p>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

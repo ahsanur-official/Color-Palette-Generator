@@ -1,162 +1,241 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    background: linear-gradient(90deg, #0b0018, #003082);
-    margin: 0;
-    padding: 0;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background: linear-gradient(90deg, #0b0018, #003082);
+  margin: 0;
+  padding: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
-    margin: 30px auto;
-    max-width: 90%;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    flex-grow: 1;
+  margin: 30px auto;
+  max-width: 90%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  flex-grow: 1;
 }
 
 h1 {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .controls {
-    margin-bottom: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+/* FIX: Added style for the new container div to ensure alignment */
+#numColorsControl {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 label,
 select,
 input {
-    font-size: 14px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
 }
 
 button {
-    padding: 15px 20px;
-    font-size: 20px;
-    border: none;
-    background: #ff4081;
-    color: white;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: 0.3s;
-    font-weight: bold;
+  padding: 15px 20px;
+  font-size: 20px;
+  border: none;
+  background: #ff4081;
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 button:hover {
-    background: #d81b60;
+  background: #d81b60;
 }
 
 .palette {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 .color-box {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
 }
 
 .color-box:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .copy-alert {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(90deg, #0b0018eb, #003082eb);
-    color: white;
-    padding: 30px 40px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    z-index: 1000;
-    animation: fadeInOut 2s ease-in-out;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(90deg, #0b0018eb, #003082eb);
+  color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1000;
+  animation: fadeInOut 2s ease-in-out;
 }
 
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translate(-50%, -60%); }
-    20% { opacity: 1; transform: translate(-50%, -50%); }
-    80% { opacity: 1; transform: translate(-50%, -50%); }
-    100% { opacity: 0; transform: translate(-50%, -40%); }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
 }
 
+#gradientOptions,
+#mixOptions,
+#mixGradientOptions {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 10px auto 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: background 0.3s;
+  max-width: fit-content;
+}
+
+#gradientOptions label,
+#mixOptions label,
+#mixGradientOptions label {
+  color: #ffd6e0;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#gradientOptions input[type="number"],
+#mixOptions input[type="color"],
+#mixGradientOptions input[type="color"] {
+  border: 1px solid #ff4081;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+
+#gradientOptions select,
+#mixOptions select,
+#mixGradientOptions select {
+  background: #1a1a2e;
+  color: #fff;
+  border: 1px solid #ff4081;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+input[type="color"] {
+  border: none;
+  background: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s;
+}
+
+input[type="color"]:hover {
+  box-shadow: 0 4px 12px rgba(255, 64, 129, 0.25);
+}
 
 .footer {
-    margin-top: 15px;
-    font-size: 12px;
-    margin-bottom: 10px;
+  margin-top: 15px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .footer a {
-    color: #ffeb3b;
-    text-decoration: none;
-    font-weight: bold;
+  color: #ffeb3b;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
-    .color-box {
-        width: 80px;
-        height: 80px;
-        font-size: 10px;
-    }
+  .color-box {
+    width: 80px;
+    height: 80px;
+    font-size: 10px;
+  }
 
-    button {
-        padding: 12px 18px;
-        font-size: 16px;
-    }
+  button {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
 
-    .controls {
-        flex-direction: column;
-        align-items: center;
-    }
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 480px) {
-    .color-box {
-        width: 60px;
-        height: 60px;
-        font-size: 9px;
-    }
+  .color-box {
+    width: 60px;
+    height: 60px;
+    font-size: 9px;
+  }
 
-    button {
-        padding: 12px 18px;
-        font-size: 14px;
-    }
+  button {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
 
-    .container {
-        padding: 10px;
-    }
+  .container {
+    padding: 10px;
+  }
 
-    .controls {
-        flex-direction: column;
-        align-items: center;
-    }
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
 }
