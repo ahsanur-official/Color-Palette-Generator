@@ -34,7 +34,6 @@ h1 {
   align-items: center;
 }
 
-/* FIX: Added style for the new container div to ensure alignment */
 #numColorsControl {
   display: flex;
   align-items: center;
@@ -200,7 +199,12 @@ input[type="color"]:hover {
   font-weight: bold;
 }
 
+/* --- FIX FOR MOBILE VIEW --- */
 @media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
   .color-box {
     width: 80px;
     height: 80px;
@@ -215,10 +219,29 @@ input[type="color"]:hover {
   .controls {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+  }
+
+  /* Make option panels stack vertically */
+  #gradientOptions,
+  #mixOptions,
+  #mixGradientOptions {
+    flex-direction: column;
+    width: 85%;
+    gap: 12px;
   }
 }
 
 @media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 10px;
+    margin: 15px auto;
+  }
+
   .color-box {
     width: 60px;
     height: 60px;
@@ -230,12 +253,15 @@ input[type="color"]:hover {
     font-size: 14px;
   }
 
-  .container {
-    padding: 10px;
-  }
-
   .controls {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* Reduce font size for small device inputs */
+  label,
+  select,
+  input {
+    font-size: 13px;
   }
 }
