@@ -35,7 +35,6 @@ function generatePalette() {
       addColorBox(color, palette);
     }
   } else if (type === "gradient") {
-    // FIX: This now creates a unique gradient for each number requested.
     const gradientType = document.getElementById("gradientType").value;
     for (let i = 0; i < numColors; i++) {
       const color1 = getRandomColor();
@@ -52,7 +51,6 @@ function generatePalette() {
       addColorBox(color, palette);
     }
   } else if (type === "dg") {
-    // FIX: This now creates a unique dark gradient for each number requested.
     const gradientType = document.getElementById("gradientType").value;
     for (let i = 0; i < numColors; i++) {
       const color1 = getDarkColor();

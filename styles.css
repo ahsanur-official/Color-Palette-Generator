@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -12,13 +16,16 @@ body {
 
 .container {
   margin: 30px auto;
-  max-width: 90%;
+  width: 95%;
+  max-width: 1200px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -30,28 +37,28 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
-#numColorsControl {
+.control-group {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 label,
 select,
 input {
-  font-size: 14px;
-  padding: 5px;
+  font-size: 16px;
+  padding: 8px;
   border-radius: 5px;
   border: none;
 }
 
 button {
-  padding: 15px 20px;
-  font-size: 20px;
+  padding: 15px 30px;
+  font-size: 22px;
   border: none;
   background: #ff4081;
   color: white;
@@ -59,7 +66,10 @@ button {
   border-radius: 20px;
   transition: 0.3s;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 20px;
+
+  /* FIX: This line stops the button from stretching and centers it. */
+  align-self: center;
 }
 
 button:hover {
@@ -70,20 +80,21 @@ button:hover {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .color-box {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
+  flex: 1 1 150px;
+  aspect-ratio: 1 / 1;
+  max-width: 200px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: bold;
-  font-size: 12px;
-  border-radius: 10px;
+  font-size: 16px;
+  border-radius: 15px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s;
@@ -98,7 +109,7 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(90deg, #0b0018eb, #003082eb);
+  background: linear-gradient(90deg, #0b0018eb, #0b0018eb);
   color: white;
   padding: 30px 40px;
   border-radius: 10px;
@@ -132,15 +143,14 @@ button:hover {
 #mixOptions,
 #mixGradientOptions {
   background: rgba(255, 255, 255, 0.07);
-  padding: 10px 15px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   margin: 10px auto 0;
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   transition: background 0.3s;
-  max-width: fit-content;
 }
 
 #gradientOptions label,
@@ -149,6 +159,7 @@ button:hover {
   color: #ffd6e0;
   font-weight: bold;
   margin-right: 5px;
+  font-size: 1.2rem;
 }
 
 #gradientOptions input[type="number"],
@@ -175,8 +186,8 @@ button:hover {
 input[type="color"] {
   border: none;
   background: none;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -188,32 +199,40 @@ input[type="color"]:hover {
 }
 
 .footer {
-  margin-top: 15px;
-  font-size: 12px;
-  margin-bottom: 10px;
+  margin-top: auto;
+  padding: 20px 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer p {
+  margin: 0;
 }
 
 .footer a {
   color: #ffeb3b;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-/* --- FIX FOR MOBILE VIEW --- */
+.footer a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #ffeb3b;
+}
+
+/* --- MOBILE VIEWS --- */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.8rem;
   }
 
   .color-box {
-    width: 80px;
-    height: 80px;
-    font-size: 10px;
-  }
-
-  button {
-    padding: 12px 18px;
-    font-size: 16px;
+    flex: none;
+    width: 120px;
+    height: 120px;
+    font-size: 14px;
   }
 
   .controls {
@@ -222,13 +241,12 @@ input[type="color"]:hover {
     gap: 15px;
   }
 
-  /* Make option panels stack vertically */
   #gradientOptions,
   #mixOptions,
   #mixGradientOptions {
     flex-direction: column;
-    width: 85%;
-    gap: 12px;
+    width: 90%;
+    gap: 15px;
   }
 }
 
@@ -238,30 +256,19 @@ input[type="color"]:hover {
   }
 
   .container {
-    padding: 10px;
+    padding: 15px;
     margin: 15px auto;
   }
 
   .color-box {
-    width: 60px;
-    height: 60px;
-    font-size: 9px;
+    flex: none;
+    width: 100px;
+    height: 100px;
+    font-size: 12px;
   }
 
   button {
-    padding: 12px 18px;
-    font-size: 14px;
-  }
-
-  .controls {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Reduce font size for small device inputs */
-  label,
-  select,
-  input {
-    font-size: 13px;
+    width: 90%;
+    font-size: 18px;
   }
 }
